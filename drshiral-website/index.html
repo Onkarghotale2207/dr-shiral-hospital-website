@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dr. Shiral MAI Hospital - Premium ENT Specialist barshi, Maharashtra. Advanced ear, nose & throat care with cutting-edge technology. Book appointment now.">
+<meta name="theme-color" content="#0a0e1a">
+<title>Dr. Shiral MAI Hospital | Premium ENT Care - Barshi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-ecg">
+    <svg viewBox="0 0 200 60" preserveAspectRatio="none">
+      <path d="M0,30 L40,30 L50,10 L60,50 L70,30 L80,30 L90,5 L100,55 L110,30 L120,30 L130,15 L140,45 L150,30 L200,30"/>
+    </svg>
+  </div>
+  <div class="loader-text">Initializing Medical Systems</div>
+</div>
+
+<!-- PARTICLE BACKGROUND CANVAS -->
+<canvas id="particle-canvas"></canvas>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav">
+  <a href="#services" onclick="closeMobileNav()">Services</a>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#gallery" onclick="closeMobileNav()">Gallery</a>
+  <a href="#testimonials" onclick="closeMobileNav()">Patients</a>
+  <a href="#pricing" onclick="closeMobileNav()">Fees</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+</div>
+
+<!-- HEADER -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="#hero" class="logo-wrap">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><rect x="10" y="2" width="4" height="20" rx="1.5"/><rect x="2" y="10" width="20" height="4" rx="1.5"/></svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">Dr. Shiral <span>MAI Hospital</span></span>
+        <span class="logo-sub">Premium ENT Care · Barshi</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#testimonials">Patients</a>
+      <a href="#pricing">Fees</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-ctas">
+      <a href="tel:+919822516716" class="btn-outline-glow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call
+      </a>
+      <a href="https://wa.me/919822516716?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Dr.%20Shiral%20Hospital%2C%20Barshi." class="btn-glow" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3.6A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6C8 23.4 10 24 12 24c6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.6-8.4zM12 22c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.7.9.9-3.6-.2-.4C2.5 15.7 2 13.9 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm5.5-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.2-.5s-.1-.4-.2-.6c-.1-.2-.7-1.7-.9-2.4-.2-.6-.5-.5-.6-.5h-.6c-.2 0-.5.1-.8.4C7.2 9 6.5 9.7 6.5 11.1s1 2.7 1.1 2.9c.2.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.4z"/></svg>
+        Book Now
+      </a>
+    </div>
+    <div class="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- STICKY BOTTOM BAR -->
+<div id="sticky-bar">
+  <a href="tel:+919822516716" class="sbar-call">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call
+  </a>
+  <a href="https://wa.me/919822516716?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Dr.%20Shiral%20Hospital%2C%20Barshi." class="sbar-wa" target="_blank" rel="noopener">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3.6A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6C8 23.4 10 24 12 24c6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.6-8.4zM12 22c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.7.9.9-3.6-.2-.4C2.5 15.7 2 13.9 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm5.5-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.2-.5s-.1-.4-.2-.6c-.1-.2-.7-1.7-.9-2.4-.2-.6-.5-.5-.6-.5h-.6c-.2 0-.5.1-.8.4C7.2 9 6.5 9.7 6.5 11.1s1 2.7 1.1 2.9c.2.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.4z"/></svg>
+    WhatsApp
+  </a>
+</div>
+
+<!-- HERO SECTION -->
+<section id="hero">
+  <canvas id="three-canvas"></canvas>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span> ENT Specialist · Est. 2008 · Barshi
+      </div>
+      <h1 class="hero-h1">
+        Advanced <em>Ear, Nose</em><br>& <span class="highlight">Throat Care</span><br>With Precision
+      </h1>
+      <p class="hero-sub">Over 15 years of dedicated ENT practice. Expert diagnosis, compassionate care, and cutting-edge treatment — without the journey to Pune or Aurangabad.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/919822516716?text=Hello%20Doctor%2C%20I%20would%20like%20to%20book%20an%20ENT%20appointment%20at%20Dr.%20Shiral%20Hospital%2C%20Barshi." class="btn-glow" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3.6A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6C8 23.4 10 24 12 24c6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.6-8.4zM12 22c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.7.9.9-3.6-.2-.4C2.5 15.7 2 13.9 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm5.5-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.2-.5s-.1-.4-.2-.6c-.1-.2-.7-1.7-.9-2.4-.2-.6-.5-.5-.6-.5h-.6c-.2 0-.5.1-.8.4C7.2 9 6.5 9.7 6.5 11.1s1 2.7 1.1 2.9c.2.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.4z"/></svg>
+          Book Appointment
+        </a>
+        <a href="tel:+919822516716" class="btn-outline-glow">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 98225 16716
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num counter-value" data-target="15">0</div>
+          <div class="hero-stat-label">Years Experience</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num counter-value" data-target="10000">0</div>
+          <div class="hero-stat-label">Patients Treated</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num counter-value" data-target="4">0</div>
+          <div class="hero-stat-label">Floor Hospital</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="anatomy-container">
+    <div class="anatomy-float">
+      <div class="anatomy-icon">👂</div>
+      <div class="anatomy-label">Ear</div>
+    </div>
+    <div class="anatomy-float">
+      <div class="anatomy-icon">👃</div>
+      <div class="anatomy-label">Nose</div>
+    </div>
+    <div class="anatomy-float">
+      <div class="anatomy-icon">🗣️</div>
+      <div class="anatomy-label">Throat</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section id="trust">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item reveal">
+        <div class="trust-num"><span class="counter-value" data-target="15">0</span>+</div>
+        <div class="trust-label">Years Experience</div>
+      </div>
+      <div class="trust-item reveal reveal-delay-1">
+        <div class="trust-num"><span class="counter-value" data-target="10000">0</span>+</div>
+        <div class="trust-label">Patients Treated</div>
+      </div>
+      <div class="trust-item reveal reveal-delay-2">
+        <div class="trust-num"><span class="counter-value" data-target="4">0</span></div>
+        <div class="trust-label">Floor Hospital</div>
+      </div>
+      <div class="trust-item reveal reveal-delay-3">
+        <div class="trust-num"><span class="counter-value" data-target="98">0</span>%</div>
+        <div class="trust-label">Success Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section-pad">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Our Expertise</div>
+      <h2 class="section-title">Specialized <em>ENT</em> <span class="grad">Services</span></h2>
+      <p class="section-sub">Comprehensive ear, nose, and throat care using advanced diagnostic and treatment technologies.</p>
+    </div>
+    <div class="services-grid" style="margin-top: 60px;">
+      <div class="service-card reveal">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="svc-name">Ear Treatment</div>
+        <div class="service-desc">Complete ear care including hearing tests, ear infections, wax removal, and hearing aid fittings with modern equipment.</div>
+        <div class="service-price">From ₹500</div>
+        <a href="https://wa.me/919822516716?text=I%20want%20to%20book%20Ear%20Treatment%20at%20Dr.%20Shiral%20Hospital" class="svc-wa" target="_blank">Book via WhatsApp</a>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <div class="svc-name">Nose & Sinus Care</div>
+        <div class="service-desc">Advanced sinus treatments, nasal endoscopy, allergy management, and septoplasty procedures.</div>
+        <div class="service-price">From ₹700</div>
+        <a href="https://wa.me/919822516716?text=I%20want%20to%20book%20Nose%20Treatment%20at%20Dr.%20Shiral%20Hospital" class="svc-wa" target="_blank">Book via WhatsApp</a>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        </div>
+        <div class="svc-name">Throat & Voice</div>
+        <div class="service-desc">Voice disorders, tonsillitis, swallowing issues, laryngoscopy, and speech therapy services.</div>
+        <div class="service-price">From ₹600</div>
+        <a href="https://wa.me/919822516716?text=I%20want%20to%20book%20Throat%20Treatment%20at%20Dr.%20Shiral%20Hospital" class="svc-wa" target="_blank">Book via WhatsApp</a>
+      </div>
+      <div class="service-card featured reveal">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        </div>
+        <div class="svc-name">Advanced Diagnostics</div>
+        <div class="service-desc">Digital X-ray, endoscopy, audiometry, and complete ENT examination with latest technology. Get accurate diagnosis in single visit.</div>
+        <div class="service-price">From ₹1,200</div>
+        <a href="https://wa.me/919822516716?text=I%20want%20to%20book%20Diagnostics%20at%20Dr.%20Shiral%20Hospital" class="svc-wa" target="_blank">Book via WhatsApp</a>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        </div>
+        <div class="svc-name">Pediatric ENT</div>
+        <div class="service-desc">Specialized care for children including ear tubes, adenoid removal, and child-friendly treatment approach.</div>
+        <div class="service-price">From ₹800</div>
+        <a href="https://wa.me/919822516716?text=I%20want%20to%20book%20Pediatric%20ENT%20at%20Dr.%20Shiral%20Hospital" class="svc-wa" target="_blank">Book via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / DOCTOR PROFILE -->
+<section id="about" class="section-pad">
+  <div class="container">
+    <div class="about-grid">
+      <div class="doctor-3d-container reveal">
+        <div class="doctor-glow-ring"></div>
+        <div class="doctor-inner-ring"></div>
+        <div class="doctor-avatar">DS</div>
+        <div class="doctor-badge">
+          <div class="doctor-badge-num">15+</div>
+          <div class="doctor-badge-text">Years Exp.</div>
+        </div>
+      </div>
+      <div class="about-content reveal reveal-delay-2">
+        <div class="eyebrow">About Doctor</div>
+        <h2 class="about-heading">Dr. Shiral — <em>Expert ENT</em> Specialist</h2>
+        <p class="about-p">With over 15 years of dedicated practice in Ear, Nose, and Throat care, Dr. Shiral has established Barshi's most trusted ENT hospital. Our facility combines clinical expertise with compassionate patient care.</p>
+        <p class="about-p">We believe everyone deserves access to quality healthcare without traveling to metro cities. Our 4-floor hospital is equipped with modern diagnostic tools and treatment facilities.</p>
+        <div class="diffs">
+          <div class="diff">
+            <div class="diff-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div>Advanced endoscopy & diagnostic equipment</div>
+          </div>
+          <div class="diff">
+            <div class="diff-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div>Same-day appointments & minimal wait times</div>
+          </div>
+          <div class="diff">
+            <div class="diff-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div>Affordable care — no need to travel to Pune/Aurangabad</div>
+          </div>
+          <div class="diff">
+            <div class="diff-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div>Personalized treatment plans for every patient</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section-pad">
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 60px;">
+      <div class="eyebrow" style="justify-content: center;">Our Facility</div>
+      <h2 class="section-title">Modern <span class="grad">Infrastructure</span></h2>
+      <p class="section-sub" style="margin-left: auto; margin-right: auto;">State-of-the-art equipment and comfortable patient facilities.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item g-wide reveal">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=400&fit=crop" alt="Hospital Reception" loading="lazy">
+        <div class="g-item-overlay">
+          <div class="g-item-title">Reception Area</div>
+          <div class="g-item-desc">Welcoming patient-first environment</div>
+        </div>
+      </div>
+      <div class="g-item g-tall reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=400&h=600&fit=crop" alt="Examination Room" loading="lazy">
+        <div class="g-item-overlay">
+          <div class="g-item-title">Examination Room</div>
+          <div class="g-item-desc">Advanced diagnostic setup</div>
+        </div>
+      </div>
+      <div class="g-item reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=400&h=300&fit=crop" alt="ENT Equipment" loading="lazy">
+        <div class="g-item-overlay">
+          <div class="g-item-title">ENT Equipment</div>
+          <div class="g-item-desc">Latest technology</div>
+        </div>
+      </div>
+      <div class="g-item reveal reveal-delay-3">
+        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=400&h=300&fit=crop" alt="Patient Care" loading="lazy">
+        <div class="g-item-overlay">
+          <div class="g-item-title">Patient Care</div>
+          <div class="g-item-desc">Compassionate service</div>
+        </div>
+      </div>
+      <div class="g-item g-wide reveal">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=400&fit=crop&sat=-100" alt="Hospital Building" loading="lazy">
+        <div class="g-item-overlay">
+          <div class="g-item-title">Hospital Building</div>
+          <div class="g-item-desc">4-floor modern facility</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section-pad">
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 60px;">
+      <div class="eyebrow" style="justify-content: center;">Patient Stories</div>
+      <h2 class="section-title">What Our <span class="grad">Patients</span> Say</h2>
+      <p class="section-sub" style="margin-left: auto; margin-right: auto;">Real experiences from real patients who trusted us with their care.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="testi-text">"Finally got my chronic sinus issue treated without traveling to Pune. Dr. Shiral's diagnosis was spot on and the treatment worked within weeks. Highly recommended!"</div>
+        <div class="testi-author">
+          <div class="testi-avatar">RS</div>
+          <div>
+            <div class="testi-name">Rahul Shinde</div>
+            <div class="testi-loc">Barshi, Maharashtra</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="testi-text">"My daughter's ear infection was causing her so much pain. The pediatric ENT care here was excellent. Friendly staff and very professional doctor."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">SP</div>
+          <div>
+            <div class="testi-name">Sunita Patil</div>
+            <div class="testi-loc">Solapur District</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="testi-text">"Got my tonsillectomy done here. The surgery was smooth and recovery was faster than expected. Modern facilities right in Barshi — no need to go to big cities."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">AK</div>
+          <div>
+            <div class="testi-name">Amit Kadam</div>
+            <div class="testi-loc">Pandharpur</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section id="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2 class="cta-title">Ready for Better <span class="grad">ENT Care?</span></h2>
+      <p class="cta-sub">Book your appointment today. Walk-ins welcome. Emergency services available.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/919822516716?text=Hello%20Doctor%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Dr.%20Shiral%20Hospital%2C%20Barshi." class="btn-glow" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3.6A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6C8 23.4 10 24 12 24c6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.6-8.4zM12 22c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.7.9.9-3.6-.2-.4C2.5 15.7 2 13.9 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm5.5-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.2-.5s-.1-.4-.2-.6c-.1-.2-.7-1.7-.9-2.4-.2-.6-.5-.5-.6-.5h-.6c-.2 0-.5.1-.8.4C7.2 9 6.5 9.7 6.5 11.1s1 2.7 1.1 2.9c.2.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.4z"/></svg>
+          Book via WhatsApp
+        </a>
+        <a href="tel:+919822516716" class="btn-outline-glow">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call: +91 98225 16716
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section-pad">
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 60px;">
+      <div class="eyebrow" style="justify-content: center;">Transparent Pricing</div>
+      <h2 class="section-title">Consultation <span class="grad">Fees</span></h2>
+      <p class="section-sub" style="margin-left: auto; margin-right: auto;">Affordable healthcare with no hidden charges.</p>
+    </div>
+    <div class="pricing-wrap reveal">
+      <div class="price-row">
+        <div>
+          <div class="price-svc-name">First Consultation</div>
+          <div class="price-svc-desc">Complete ENT examination & diagnosis</div>
+        </div>
+        <div class="price-amount">₹500</div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-svc-name">Follow-up Visit</div>
+          <div class="price-svc-desc">Progress check & medication review</div>
+        </div>
+        <div class="price-amount">₹300</div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-svc-name">Endoscopy</div>
+          <div class="price-svc-desc">Nasal/Throat endoscopy with report</div>
+        </div>
+        <div class="price-amount">₹1,500</div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-svc-name">Audiometry Test</div>
+          <div class="price-svc-desc">Complete hearing assessment</div>
+        </div>
+        <div class="price-amount">₹800</div>
+      </div>
+      <div class="price-row">
+        <div>
+          <div class="price-svc-name">Ear Cleaning / Wax Removal</div>
+          <div class="price-svc-desc">Safe microsuction procedure</div>
+        </div>
+        <div class="price-amount">₹400</div>
+      </div>
+      <div class="pricing-note">
+        <strong style="color: var(--blue-glow);">Note:</strong> Surgical procedure costs depend on complexity and will be discussed during consultation. All major payment methods accepted. Emergency services available 24/7.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 60px;">
+      <div class="eyebrow" style="justify-content: center;">Get In Touch</div>
+      <h2 class="section-title">Visit <span class="grad">Our Hospital</span></h2>
+      <p class="section-sub" style="margin-left: auto; margin-right: auto;">Conveniently located in Sambhaji Nagar, Barshi.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="map-wrap reveal">
+        <iframe src="https://maps.google.com/maps?q=Dr+Shiral+Hospital,Sambhaji+Nagar,Barshi,Maharashtra+413401&output=embed" allowfullscreen loading="lazy" title="Dr. Shiral MAI Hospital on Google Maps"></iframe>
+      </div>
+      <div class="contact-details">
+        <div class="reveal reveal-delay-1">
+          <div class="hours-label">Working Hours</div>
+          <div class="hours-grid">
+            <div class="hours-item"><strong>Morning</strong>10:00 AM – 1:30 PM</div>
+            <div class="hours-item"><strong>Evening</strong>5:00 PM – 8:30 PM</div>
+            <div class="hours-item"><strong>Sunday</strong>10:00 AM – 1:00 PM</div>
+            <div class="hours-item"><strong>Emergency</strong>24/7 Available</div>
+          </div>
+        </div>
+        <div class="contact-method reveal reveal-delay-2">
+          <div class="cm-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="cm-label">Phone</div>
+            <div class="cm-value"><a href="tel:+919822516716">+91 98225 16716</a></div>
+          </div>
+        </div>
+        <div class="contact-method reveal reveal-delay-3">
+          <div class="cm-icon wa-icon">
+            <svg viewBox="0 0 24 24"><path d="M20.4 3.6A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6C8 23.4 10 24 12 24c6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.6-8.4zM12 22c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.7.9.9-3.6-.2-.4C2.5 15.7 2 13.9 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm5.5-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.2-.5s-.1-.4-.2-.6c-.1-.2-.7-1.7-.9-2.4-.2-.6-.5-.5-.6-.5h-.6c-.2 0-.5.1-.8.4C7.2 9 6.5 9.7 6.5 11.1s1 2.7 1.1 2.9c.2.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.4z"/></svg>
+          </div>
+          <div>
+            <div class="cm-label">WhatsApp</div>
+            <div class="cm-value"><a href="https://wa.me/919822516716" target="_blank">+91 98225 16716</a></div>
+          </div>
+        </div>
+        <div class="contact-method reveal reveal-delay-4">
+          <div class="cm-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <div class="cm-label">Address</div>
+            <div class="cm-value">Dr. Shiral MAI Hospital, Sambhaji Nagar, Barshi, Maharashtra 413401</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-wrap">
+          <div class="logo-icon" style="width: 40px; height: 40px;">
+            <svg viewBox="0 0 24 24" style="width: 20px; height: 20px;"><rect x="10" y="2" width="4" height="20" rx="1.5"/><rect x="2" y="10" width="20" height="4" rx="1.5"/></svg>
+          </div>
+          <div class="footer-brand">Dr. Shiral <span>MAI Hospital</span></div>
+        </div>
+        <div class="footer-tag">Premium ENT Care · Est. 2008</div>
+        <div class="footer-about">Barshi's most trusted ENT hospital. Providing advanced ear, nose, and throat care with compassion and cutting-edge technology for over 15 years.</div>
+        <a href="https://wa.me/919822516716?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Dr.%20Shiral%20Hospital" class="footer-wa-big" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3.6A11.9 11.9 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6C8 23.4 10 24 12 24c6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.6-8.4zM12 22c-1.8 0-3.6-.5-5.2-1.4l-.4-.2-3.7.9.9-3.6-.2-.4C2.5 15.7 2 13.9 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm5.5-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.2-.5s-.1-.4-.2-.6c-.1-.2-.7-1.7-.9-2.4-.2-.6-.5-.5-.6-.5h-.6c-.2 0-.5.1-.8.4C7.2 9 6.5 9.7 6.5 11.1s1 2.7 1.1 2.9c.2.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.4z"/></svg>
+          Book on WhatsApp
+        </a>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Doctor</a></li>
+          <li><a href="#pricing">Fees</a></li>
+          <li><a href="#gallery">Facility</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+919822516716">+91 98225 16716</a></li>
+          <li><a href="https://wa.me/919822516716" target="_blank">WhatsApp</a></li>
+          <li>Sambhaji Nagar, Barshi</li>
+          <li>Maharashtra 413401</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2024 Dr. Shiral MAI Hospital. All rights reserved.</div>
+      <div class="built-by">Premium ENT Care in Barshi</div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
